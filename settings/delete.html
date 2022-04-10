@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete your data</title>
+</head>
+<body>
+    <h1>Delete your data</h1>
+    <p>This will delete all location data stored on this device.</p>
+    <button onclick="del()">continue</button>
+    <script>
+        function del() {
+            localStorage.clear()
+            alert("Data was deleted.")
+            window.open("https://wx.jacobdrath.co", "_self")
+        }
+    </script>
+</body>
+</html>
