@@ -10,6 +10,9 @@ When the temp is under 10
 ### Foggy
 When the visibility is under 40%
 
+### Windy
+When the wind speed is over 18 KPH and it is not Hot, Cold, or foggy
+
 ### Cloudy
 When it is not hot, cold, foggy, and has a >90% cloud coverige
 
