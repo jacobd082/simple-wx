@@ -76,5 +76,5 @@ function showWX(w) {
 
 
 function configS(loca, cond) {
-    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <h1>It is '+cond+'.</h1><p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a href="settings">Settings</a><br><a href="https://github.com/jacobd082/wx/commits/main">See changelog</a></div></div>')
+    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <h1>It is '+cond+'.</h1><p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a href="settings">Settings</a></div></div>')
 }
