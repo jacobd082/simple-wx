@@ -5,31 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Weather</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <h1>Weather is difficult... We get it!</h1>
     <p>That's why I made a weather website that makes it easy!</p>
     <p>This website will need your location to continue. Don't worry! It's not sent anywhere!</p>
     <button onclick="setGPS()">Use my current location</button>
-    <script src="main.js"></script>
+    <script defer src="main.js"></script>
 </body>
-<style>
-    .container { 
-      height: 200px;
-      position: relative;
-      border: 3px solid green; 
-    }
-    
-    .center {
-      margin: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-    }
-    body {
-        font-family: sans-serif;
-    }
-    </style>
+
 </html>

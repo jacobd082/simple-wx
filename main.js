@@ -1,3 +1,4 @@
+
 if (localStorage.getItem("lat")==null) {} else {
     getWX()
 }
@@ -55,6 +56,9 @@ function showWX(w) {
         configS(l, "foggy")
     } else if (w.weather[0].main=="Clouds") {
         configS(l, "cloudy")
+        if (w.clouds.all<90) {
+            configS(l, "partly cloudy")
+        }
     } else if (w.weather[0].main=="Sun") {
         configS(l, "sunny")
     } else if (w.weather[0].main=="Rain") {
@@ -70,5 +74,5 @@ function showWX(w) {
 
 
 function configS(loca, cond) {
-    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <h1>It is '+cond+'.</h1><p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a href="settings">Settings</a></div></div><style>     .container {        height: 80vh;       position: relative;    ;      }          .center {       margin: 0;       position: absolute;       top: 50%;       left: 50%;       -ms-transform: translate(-50%, -50%);       transform: translate(-50%, -50%);     }     body {         font-family: sans-serif;     }     a:visited {color: blue;}</style>')
+    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <h1>It is '+cond+'.</h1><p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a href="settings">Settings</a></div></div>')
 }
