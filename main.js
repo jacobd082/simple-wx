@@ -45,16 +45,13 @@ function getWX () {
 function showWX(w) {
     var l = w.name
     var temp = Math.floor(w.main.temp)
-    if (w.wind.speed>20) {
-        configS(l, "windy")
-    }
     if (temp<10) {
         configS(l, "cold")
     } else if (temp>90) {
         configS(l, "hot")
     } else if (w.visibility<4000) {
         configS(l, "foggy")
-    } else if (w.wind.speed>18) {
+    } else if (w.wind.speed>25) {
         configS(l, "windy")
     } else if (w.weather[0].main=="Clouds") {
         configS(l, "cloudy")
