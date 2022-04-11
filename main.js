@@ -1,4 +1,6 @@
 
+
+
 if (localStorage.getItem("lat")==null) {} else {
     getWX()
 }
@@ -51,7 +53,7 @@ function showWX(w) {
         configS(l, "hot")
     } else if (w.visibility<4000) {
         configS(l, "foggy")
-    } else if (w.wind.speed>25) {
+    } else if (w.wind.speed>18) {
         configS(l, "windy")
     } else if (w.weather[0].main=="Clouds") {
         configS(l, "cloudy")
@@ -68,6 +70,12 @@ function showWX(w) {
         configS(l, "bad")
     } else {
         configS(l, w.weather[0].description)
+    }
+
+
+    if (Math.round((new Date()).getTime() / 1000)>w.sys.sunset) {
+        document.body.style.background=("black")
+        document.body.style.color=("white")
     }
 }
 
