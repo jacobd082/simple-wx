@@ -14,7 +14,7 @@ When the visibility is under 40%
 When the wind speed is over 25 MPH and it is not Hot, Cold, or foggy
 
 ### Cloudy
-When it is not hot, cold, foggy, and has a >90% cloud coverige
+When it is not hot, cold, and has a >90% cloud coverige
 
 ### Partly Cloudy
 When it is cloudy but, under 90% cloud coverige
