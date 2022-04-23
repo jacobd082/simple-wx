@@ -51,6 +51,10 @@ function showWX(w) {
         configS(l, "cold")
     } else if (temp>90) {
         configS(l, "hot")
+    } else if (w.weather[0].main=="Rain") {
+        configS(l, "raining")
+    } else if (w.weather[0].main=="Snow") {
+        configS(l, "snowing")
     } else if (w.visibility<4000) {
         configS(l, "foggy")
     } else if (w.wind.speed>25) {
@@ -62,10 +66,6 @@ function showWX(w) {
         }
     } else if (w.weather[0].main=="Sun") {
         configS(l, "sunny")
-    } else if (w.weather[0].main=="Rain") {
-        configS(l, "raining")
-    } else if (w.weather[0].main=="Snow") {
-        configS(l, "snowing")
     } else if (w.weather[0].main=="Extreme") {
         configS(l, "bad")
     } else {
