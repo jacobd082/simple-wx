@@ -6,7 +6,21 @@ if (localStorage.getItem("lat")==null) {} else {
 }
 
 
-
+function setZIP() {
+    document.getElementById("zipr").innerHTML=("<img src='load.gif' width='40px'>Please wait...")
+    fetch('http://api.openweathermap.org/geo/1.0/zip?zip='+document.getElementById("zip").value+','+document.getElementById("zip-c").value+'&appid=b4b150ac011d2c689bb0960425153055')
+        .then(response => response.json())
+        .then(data => handleZIP(data))
+}
+function handleZIP(e) {
+    localStorage.setItem("unit", document.getElementById("unit-b").value)
+    localStorage.setItem("long", e.lon)
+    localStorage.setItem("lat", e.lat)
+    document.getElementById("zipr").innerHTML=("<p>Location was saved as "+e.name+". Weather will open shortly... <img src='load.gif' width='40px'></p>")
+    setTimeout(function(){
+        window.open(window.location.href, "_self")
+    }, 2000);
+}
 
 function setGPS() {
     var options = {
@@ -25,6 +39,7 @@ function setGPS() {
 
         localStorage.setItem("long",crd.longitude)
         localStorage.setItem("lat",crd.latitude)
+        localStorage.setItem("unit", document.getElementById("unit-a").value)
         getWX()
       }
       
@@ -37,7 +52,7 @@ function setGPS() {
 
 
 function getWX () {
-    document.body.innerHTML=("<center><h1>Please wait...</h1></center>")
+    document.body.innerHTML=("<center><h1>Please wait... <img src='load.gif' width='40px'></h1></center>")
     fetch('https://api.openweathermap.org/data/2.5/weather?units=imperial&lat='+localStorage.getItem("lat")+'&lon='+localStorage.getItem("long")+'&appid=b4b150ac011d2c689bb0960425153055')
         .then(response => response.json())
         .then(data => showWX(data))

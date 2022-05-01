@@ -6,12 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Weather</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="Logo.png">
 </head>
 <body>
+    <img src="Logo.png" width="40px"><span style="font-size: 35px; margin: 0; padding: 0;">Simple Weather</span>
+    <center>
     <h1>Weather is difficult... We get it!</h1>
     <p>That's why I made a weather website that makes it easy!</p>
     <p>This website will need your location to continue. Don't worry! It's not sent anywhere!</p>
+    <select id="unit-a">
+        <option value="imperial">F</option>
+        <option value="metric">C</option>
+    </select>
     <button onclick="setGPS()">Use my current location</button>
+    <p>Or you can enter your ZIP code:</p>
+    <input id="zip" placeholder="ZIP code">
+    <select id="zip-c">
+        <optgroup label="North America">
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="MX">Mexico</option>
+        </optgroup>
+        <optgroup label="Europe">
+            <option value="GB">United Kingdom</option>
+        </optgroup>
+        <optgroup label="Asia">
+            <option value="IN">India</option>
+            <option value="JP">Japan</option>
+        </optgroup>
+    </select>
+    <select id="unit-b">
+        <option value="imperial">F</option>
+        <option value="metric">C</option>
+    </select>
+    <button onclick="setZIP()">Next</button>
+    <div id="zipr"></div>
+    </center>
     <script defer src="main.js"></script>
 </body>
 
