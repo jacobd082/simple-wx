@@ -8,7 +8,7 @@ if (localStorage.getItem("lat")==null) {} else {
 
 function setZIP() {
     document.getElementById("zipr").innerHTML=("<img src='load.gif' width='40px'>Please wait...")
-    fetch('http://api.openweathermap.org/geo/1.0/zip?zip='+document.getElementById("zip").value+','+document.getElementById("zip-c").value+'&appid=b4b150ac011d2c689bb0960425153055')
+    fetch('https://api.openweathermap.org/geo/1.0/zip?zip='+document.getElementById("zip").value+','+document.getElementById("zip-c").value+'&appid=b4b150ac011d2c689bb0960425153055')
         .then(response => response.json())
         .then(data => handleZIP(data))
 }
