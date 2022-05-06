@@ -1,39 +1,9 @@
 <html>
     <body>
         <script>
-            function getSearchParameters() {
-            var prmstr = window.location.search.substr(1);
-            prmstr = prmstr.replace("-","U")
-            prmstr = prmstr.replace("-","U")
-            return prmstr != null && prmstr != "" ? transformToAssocArray(prmstr) : {};
-        }
-
-        function transformToAssocArray( prmstr ) {
-            var params = {};
-            var prmarr = prmstr.split("&");
-            for ( var i = 0; i < prmarr.length; i++) {
-                var tmparr = prmarr[i].split("=");
-                params[tmparr[0]] = tmparr[1];
-            }
-            return params;
-        }
-
-        var params = getSearchParameters();
-        var fe = ('https://www.google.com/recaptcha/api/siteverify?secret=6LfB4ckfAAAAANmItrzwta9-6SODkowTsoqGpPSo&response='+params.gUrecaptchaUresponse)
-        fetch(fe)
-            .then(response => response.json())
-            .then(data => cch(data));
-
-
-            function cch(e) {
-                if (e.success==true) {
                     localStorage.clear()
                     //alert("Data was deleted.")
                     window.open("https://wx.jacobdrath.co", "_self")
-                } else {
-                    document.body.innerHTML=("<h1>recaptcha failed</h1>")
-                }
-            }
 
             
     </script>
