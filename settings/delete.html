@@ -5,11 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete your data</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <h1>Delete your data</h1>
     <p>This will delete all location data stored on this device.</p>
-    <button onclick="del()">continue</button>
+    <form action="delcn.html" method="post">
+        <div class="g-recaptcha" data-sitekey="6LfB4ckfAAAAAJH3qOotGiFW1Munvvy_o9hC_8AU"></div>
+        <input type="submit" value="Conform">
+    </form>
+    <!--<button onclick="del()">continue</button>-->
     <script>
         function del() {
             localStorage.clear()
