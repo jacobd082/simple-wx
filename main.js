@@ -13,13 +13,17 @@ function setZIP() {
         .then(data => handleZIP(data))
 }
 function handleZIP(e) {
-    localStorage.setItem("unit", document.getElementById("unit-b").value)
-    localStorage.setItem("long", e.lon)
-    localStorage.setItem("lat", e.lat)
-    document.getElementById("zipr").innerHTML=("<p>Location was saved as "+e.name+". Weather will open shortly... <img src='load.gif' width='40px'></p>")
-    setTimeout(function(){
-        window.open(window.location.href, "_self")
-    }, 2000);
+    if (e.name==undefined) {
+        document.getElementById("zipr").innerHTML=("<p style='color: red;'>ZIP Code is invalid</p>")
+    } else {
+        localStorage.setItem("unit", document.getElementById("unit-b").value)
+        localStorage.setItem("long", e.lon)
+        localStorage.setItem("lat", e.lat)
+        document.getElementById("zipr").innerHTML=("<p>Location was saved as "+e.name+". Weather will open shortly... <img src='load.gif' width='40px'></p>")
+        setTimeout(function(){
+            window.open(window.location.href, "_self")
+        }, 2000);
+    }
 }
 
 function setGPS() {
