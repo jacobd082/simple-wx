@@ -19,7 +19,7 @@
         }
 
         var params = getSearchParameters();
-        var fe = ('https://www.google.com/recaptcha/api/siteverify?secret=6LfB4ckfAAAAANmItrzwta9-6SODkowTsoqGpPSo$response='+params.gUrecaptchaUresponse)
+        var fe = ('https://www.google.com/recaptcha/api/siteverify?secret=6LfB4ckfAAAAANmItrzwta9-6SODkowTsoqGpPSo&response='+params.gUrecaptchaUresponse)
         fetch(fe)
             .then(response => response.json())
             .then(data => cch(data));
