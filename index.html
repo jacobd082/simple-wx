@@ -7,6 +7,7 @@
     <title>Simple Weather</title>
     <link rel="stylesheet" href="main.css">
     <link rel="icon" href="Logo.png">
+    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 </head>
 <body>
     <img src="Logo.png" width="40px"><span style="font-size: 35px; margin: 0; padding: 0;">Simple Weather</span>
@@ -19,37 +20,41 @@
         <option value="metric">C</option>
     </select>
     <button onclick="setGPS()">Use my current location</button>
-    <p>Or you can enter your ZIP code:</p>
-    <input id="zip" placeholder="ZIP code">
-    <select id="zip-c">
-        <optgroup label="North America">
-            <option value="US">United States</option>
-            <option value="CA">Canada</option>
-            <option value="MX">Mexico</option>
-        </optgroup>
-        <optgroup label="South America">
-            <option value="BR">Brazil</option>
-        </optgroup>
-        <optgroup label="Europe">
-            <option value="GB">United Kingdom</option>
-            <option value="FR">France</option>
-            <option value="ES">Spain</option>
-        </optgroup>
-        <optgroup label="Asia">
-            <option value="IN">India</option>
-            <option value="JP">Japan</option>
-            <option value="ID">Indonesia</option>
-        </optgroup>
-        <optgroup label="Other">
-            <option value="RU">Russia</option>
-        </optgroup>
-    </select>
-    <select id="unit-b">
-        <option value="imperial">F</option>
-        <option value="metric">C</option>
-    </select>
-    <button onclick="setZIP()">Next</button>
-    <div id="zipr"></div>
+    <div>
+        <p>Or you can enter your ZIP code:</p>
+        <input id="zip" placeholder="ZIP code">
+        <select id="zip-c">
+            <optgroup label="North America">
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="MX">Mexico</option>
+            </optgroup>
+            <optgroup label="South America">
+                <option value="BR">Brazil</option>
+            </optgroup>
+            <optgroup label="Europe">
+                <option value="GB">United Kingdom</option>
+                <option value="FR">France</option>
+                <option value="ES">Spain</option>
+            </optgroup>
+            <optgroup label="Asia">
+                <option value="IN">India</option>
+                <option value="JP">Japan</option>
+                <option value="ID">Indonesia</option>
+            </optgroup>
+            <optgroup label="Other">
+                <option value="RU">Russia</option>
+            </optgroup>
+        </select>
+        <select id="unit-b">
+            <option value="imperial">F</option>
+            <option value="metric">C</option>
+        </select>
+        <button onclick="setZIP()">Next</button>
+        <div id="zipr"></div>
+    </div>
+    <br>
+    <p>Project by <a href="https://jacobdrath.co">Jacob Drath</a></p>
     </center>
     <script defer src="main.js"></script>
 </body>
