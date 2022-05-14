@@ -66,36 +66,41 @@ function getWX () {
 function showWX(w) {
     var l = w.name
     var temp = Math.floor(w.main.temp)
+    if (localStorage.getItem("icon-show")=="1") {
+        icon = "<img src='http://openweathermap.org/img/wn/"+w.weather[0].icon+"@2x.png' width='60px'><br>"
+    } else {
+        icon = ""
+    }
     if (temp<10) {
         if (localStorage.getItem("unit")=="imperial") {
-            configS(l, "cold", temp)
+            configS(l, "cold", temp, icon)
         }
     }
 
     if (temp>95) {
         if (localStorage.getItem("unit")=="imperial") {
-            configS(l, "hot", temp)
+            configS(l, "hot", temp, icon)
         }
     }
     else if (w.weather[0].main=="Rain") {
-        configS(l, "raining", temp)
+        configS(l, "raining", temp, icon)
     } else if (w.weather[0].main=="Snow") {
-        configS(l, "snowing", temp)
+        configS(l, "snowing", temp, icon)
     } else if (w.visibility<4000) {
-        configS(l, "foggy", temp)
+        configS(l, "foggy", temp, icon)
     } else if (w.wind.speed>25) {
-        configS(l, "windy", temp)
+        configS(l, "windy", temp, icon)
     } else if (w.weather[0].main=="Clouds") {
-        configS(l, "cloudy", temp)
+        configS(l, "cloudy", temp, icon)
         if (w.clouds.all<90) {
-            configS(l, "partly cloudy", temp)
+            configS(l, "partly cloudy", temp, icon)
         }
     } else if (w.weather[0].main=="Sun") {
-        configS(l, "sunny", temp)
+        configS(l, "sunny", temp, icon)
     } else if (w.weather[0].main=="Extreme") {
-        configS(l, "bad", temp)
+        configS(l, "bad", temp, icon)
     } else {
-        configS(l, w.weather[0].description, temp)
+        configS(l, w.weather[0].description, temp, icon)
     }
 
 
@@ -106,6 +111,6 @@ function showWX(w) {
 }
 
 
-function configS(loca, cond, temp) {
-    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <img src="Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br><h1 style="margin-top: 2px;">It is '+cond+'.</h1><p>Currently '+temp+'°</p><p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a href="settings">Settings</a></div></div>')
+function configS(loca, cond, temp, icon) {
+    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <img src="Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1><p>Currently '+temp+'°</p><p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a href="settings">Settings</a></div></div>')
 }
