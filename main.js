@@ -95,8 +95,12 @@ function showWX(w) {
         if (w.clouds.all<90) {
             configS(l, "partly cloudy", temp, icon)
         }
-    } else if (w.weather[0].main=="Sun") {
-        configS(l, "sunny", temp, icon)
+    } else if (w.weather[0].description=="clear sky") {
+        if (Math.round((new Date()).getTime() / 1000)<w.sys.sunset) {
+            configS(l, "sunny", temp, icon)
+        } else {
+            configS(l, "dark", temp, icon)
+        }
     } else if (w.weather[0].main=="Extreme") {
         configS(l, "bad", temp, icon)
     } else {
