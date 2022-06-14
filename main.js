@@ -49,6 +49,7 @@ function setGPS() {
       
       function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
+        alert("There was an error getting your location. Please make sure it is on and try again.")
       }
       
       navigator.geolocation.getCurrentPosition(success, error, options);
