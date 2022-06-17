@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Weather</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="Logo.png">
-    <link rel="apple-touch-icon" href="Logo.png">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="Logo.png" />
+    <link rel="apple-touch-icon" href="Logo.png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
-</head>
-<body>
-    <img src="Logo.png" width="40px"><span style="font-size: 35px; margin: 0; padding: 0;">Simple Weather</span>
+  </head>
+  <body>
+    <img src="Logo.png" width="40px" /><span
+      style="font-size: 35px; margin: 0; padding: 0"
+      >Simple Weather</span
+    >
     <center>
-    <h1>The simplest weather app.</h1>
-    <p>Simple Weather explains weather in simple terms that anyone can read!</p>
-    <p>You can start here in two ways. In order to provide your weather, this site will need your location. Your location is not sent anywhere but to get your weather. You can provide it by using your current location, or by entering your ZIP code.</p>
-    <select id="unit-a" style="display: none;">
+      <h1>The simplest weather app.</h1>
+      <p>
+        Simple Weather explains weather in simple terms that anyone can read!
+      </p>
+      <p>
+        You can start here in two ways. In order to provide your weather, this
+        site will need your location. Your location is not sent anywhere but to
+        get your weather. You can provide it by using your current location, or
+        by entering your ZIP code.
+      </p>
+      <select id="unit-a" style="display: none">
         <option value="imperial">F</option>
         <option value="metric">C</option>
-    </select>
-    <button onclick="setGPS()">Use my current location</button>
-    <div>
+      </select>
+      <button onclick="setGPS()">Use my current location</button>
+      <div>
         <p>Or enter your ZIP code:</p>
-        <input id="zip" placeholder="ZIP code">
+        <input id="zip" placeholder="ZIP code" />
         <select id="zip-c">
-            <optgroup label="North America">
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
-                <option value="MX">Mexico</option>
-            </optgroup>
-            <optgroup label="South America">
-                <option value="BR">Brazil</option>
-            </optgroup>
-            <optgroup label="Europe">
-                <option value="GB">United Kingdom</option>
-                <option value="FR">France</option>
-                <option value="ES">Spain</option>
-            </optgroup>
-            <optgroup label="Asia">
-                <option value="IN">India</option>
-                <option value="JP">Japan</option>
-                <option value="ID">Indonesia</option>
-            </optgroup>
-            <optgroup label="Other">
-                <option value="RU">Russia</option>
-            </optgroup>
+          <optgroup label="North America">
+            <option value="US">United States</option>
+            <option value="CA">Canada</option>
+            <option value="MX">Mexico</option>
+          </optgroup>
+          <optgroup label="South America">
+            <option value="BR">Brazil</option>
+          </optgroup>
+          <optgroup label="Europe">
+            <option value="GB">United Kingdom</option>
+            <option value="FR">France</option>
+            <option value="ES">Spain</option>
+          </optgroup>
+          <optgroup label="Asia">
+            <option value="IN">India</option>
+            <option value="JP">Japan</option>
+            <option value="ID">Indonesia</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="RU">Russia</option>
+          </optgroup>
         </select>
-        <select id="unit-b" style="display: none;">
-            <option value="imperial">F</option>
-            <option value="metric">C</option>
+        <select id="unit-b" style="display: none">
+          <option value="imperial">F</option>
+          <option value="metric">C</option>
         </select>
         <button onclick="setZIP()">Next</button>
         <div id="zipr"></div>
-    </div>
-    <br>
-    <p>Project by <a href="https://jacobdrath.co">Jacob Drath</a></p>
+      </div>
+      <br />
+      <p>Project by <a href="https://jacobdrath.co">Jacob Drath</a></p>
     </center>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <script defer src="main.js"></script>
-</body>
-
+  </body>
 </html>
