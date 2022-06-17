@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <title>Settings</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
 <h2>Settings</h2>
@@ -22,6 +23,13 @@
   document.getElementById("icon").checked=(Boolean(Number(localStorage.getItem("icon-show"))))
   function setIcon() {
     localStorage.setItem("icon-show",Number(document.getElementById("icon").checked))
+    Toastify({
+            text: "Saved!",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            gravity: "bottom"
+          }).showToast();
   }
   </script>
 <script>
@@ -42,6 +50,6 @@ function myFunction() {
     }
 }
 </script>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

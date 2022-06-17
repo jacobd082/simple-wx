@@ -1,4 +1,14 @@
+// Copyright (c) Jacob Drath 2022
 
+if (navigator.onLine==false) {
+    Toastify({
+        text: "No internet connection",
+        style: {
+          background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+        },
+        gravity: "bottom"
+      }).showToast();
+}
 
 
 if (localStorage.getItem("lat")==null) {} else {
@@ -15,11 +25,25 @@ function setZIP() {
 function handleZIP(e) {
     if (e.name==undefined) {
         document.getElementById("zipr").innerHTML=("<p style='color: red;'>ZIP Code is invalid</p>")
+        Toastify({
+            text: "ZIP code is invalid.",
+            style: {
+              background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+            },
+            gravity: "bottom"
+          }).showToast();
     } else {
         localStorage.setItem("unit", document.getElementById("unit-b").value)
         localStorage.setItem("long", e.lon)
         localStorage.setItem("lat", e.lat)
         document.getElementById("zipr").innerHTML=("<p>Location was saved as "+e.name+". Weather will open shortly... <img src='load.gif' width='40px'></p>")
+        Toastify({
+            text: "Location was saved. Please wait...",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            gravity: "bottom"
+          }).showToast();
         setTimeout(function(){
             window.open(window.location.href, "_self")
         }, 2000);
@@ -50,6 +74,13 @@ function setGPS() {
       function error(err) {
         console.warn(`ERROR(${err.code}): ${err.message}`);
         alert("There was an error getting your location. Please make sure it is on and try again.")
+        Toastify({
+            text: "There was an error getting your location. Please make sure it is on and try again.",
+            style: {
+              background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+            },
+            gravity: "bottom"
+          }).showToast();
       }
       
       navigator.geolocation.getCurrentPosition(success, error, options);
