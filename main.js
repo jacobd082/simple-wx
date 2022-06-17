@@ -89,7 +89,7 @@ function setGPS() {
 
 function getWX () {
     document.body.innerHTML=("<center><h1>Please wait... <img src='load.gif' width='40px'></h1><p>If this page stays, visit <a href='https://github.com/jacobd082/wx/issues/5#issuecomment-1159279625'>this help article</a></p></center>")
-    fetch('https://api.openweathermap.org/data/2.5/weather?units='+localStorage.getItem("unit")+'&lat='+localStorage.getItem("lat")+'&lon='+localStorage.getItem("long")+'&appid=b4b150ac011d2c689bb0960425153055')
+    fetch('https://api.openweathermap.org/data/2.5/weather?units=imperial&lat='+localStorage.getItem("lat")+'&lon='+localStorage.getItem("long")+'&appid=b4b150ac011d2c689bb0960425153055')
         .then(response => response.json())
         .then(data => showWX(data))
 }
