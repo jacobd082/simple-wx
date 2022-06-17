@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Change Unit | Simple Weather</title>
-    <link rel="icon" href="https://wx.jacobdrath.co/Logo.png" />
-  </head>
-  <body style="font-family: sans-serif">
-    <a href="javascript:history.back()">< Back</a>
+    <link rel="icon" href="https://wx.jacobdrath.co/Logo.png">
+</head>
+<body style="font-family: sans-serif;">
+
+<a href="javascript:history.back()">< Back</a>
     <h1>Change Unit of temperature</h1>
     <select id="unit">
-      <option value="imperial">F</option>
-      <option value="metric">C</option>
+        <option value="imperial">F</option>
+        <option value="metric">C</option>
     </select>
     <button onclick="save()">SAVE</button>
     <script>
-      document.getElementById("unit").value = localStorage.getItem("unit");
-      function save() {
-        localStorage.setItem("unit", document.getElementById("unit").value);
-        alert("Saved!");
-        document.body.innerHTML =
-          "<center><img src='https://wx.jacobdrath.co/load.gif' width='50px'></center>";
-        window.open("https://wx.jacobdrath.co", "_self");
-      }
+        document.getElementById("unit").value=(localStorage.getItem("unit"))
+        function save() {
+            localStorage.setItem("unit", document.getElementById("unit").value)
+            alert("Saved!")
+            document.body.innerHTML=("<center><img src='https://wx.jacobdrath.co/load.gif' width='50px'></center>")
+            window.open("https://wx.jacobdrath.co", "_self")
+        }
     </script>
-  </body>
+</body>
 </html>

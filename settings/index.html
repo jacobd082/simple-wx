@@ -1,81 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Settings</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-  </head>
-  <body>
-    <h2>Settings</h2>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<title>Settings</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+<body>
+<h2>Settings</h2>
 
-    <input
-      type="text"
-      id="myInput"
-      onkeyup="myFunction()"
-      placeholder="Search..."
-      title="Type in a name"
-    />
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..." title="Type in a name">
 
-    <ul id="myUL">
-      <li><a href="unit">Change unit</a></li>
-      <li>
-        <a
-          >Show weather icon
-          <input id="icon" type="checkbox" oninput="setIcon()"
-        /></a>
-      </li>
-      <li><a href="https://github.com/jacobd082/wx/">Open Source</a></li>
-      <li>
-        <a href="https://wx.jacobdrath.co/conditions"
-          >See conditions guide...</a
-        >
-      </li>
-      <li><a href="delete">Delete your data</a></li>
-    </ul>
-    <script>
-      document.getElementById("icon").checked = Boolean(
-        Number(localStorage.getItem("icon-show"))
-      );
-      function setIcon() {
-        localStorage.setItem(
-          "icon-show",
-          Number(document.getElementById("icon").checked)
-        );
-        Toastify({
-          text: "Saved!",
-          style: {
-            background: "linear-gradient(to right, #00b09b, #96c93d)",
-          },
-          gravity: "bottom",
-        }).showToast();
-      }
-    </script>
-    <script>
-      function myFunction() {
-        var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName("li");
-        for (i = 0; i < li.length; i++) {
-          a = li[i].getElementsByTagName("a")[0];
-          txtValue = a.textContent || a.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+<ul id="myUL">
+    <li><a href="unit">Change unit</a></li>
+    <li><a>Show weather icon <input id="icon" type="checkbox" oninput="setIcon()"></a></li>
+    <li><a href="https://github.com/jacobd082/wx/">Open Source</a></li>
+    <li><a href="https://wx.jacobdrath.co/conditions">See conditions guide...</a></li>
+    <li><a href="delete">Delete your data</a></li>
+</ul>
+<script>
+
+  document.getElementById("icon").checked=(Boolean(Number(localStorage.getItem("icon-show"))))
+  function setIcon() {
+    localStorage.setItem("icon-show",Number(document.getElementById("icon").checked))
+    Toastify({
+            text: "Saved!",
+            style: {
+              background: "linear-gradient(to right, #00b09b, #96c93d)",
+            },
+            gravity: "bottom"
+          }).showToast();
+  }
+  </script>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = "";
-          } else {
+        } else {
             li[i].style.display = "none";
-          }
         }
-      }
-    </script>
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
-  </body>
+    }
+}
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
 </html>
