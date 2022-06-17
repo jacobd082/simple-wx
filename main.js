@@ -67,7 +67,7 @@ function setGPS() {
 
         localStorage.setItem("long",crd.longitude)
         localStorage.setItem("lat",crd.latitude)
-        localStorage.setItem("unit", document.getElementById("unit-a").value)
+        //localStorage.setItem("unit", document.getElementById("unit-a").value)
         getWX()
       }
       
