@@ -1,0 +1,9 @@
+{
+    "name": "Simple Weather",
+    "short_name": "Weather",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "https://wx.jacobdrath.co/",
+    "description": "Simple Weather",
+    "orientation": "portrait"
+}

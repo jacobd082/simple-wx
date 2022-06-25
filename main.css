@@ -13,6 +13,9 @@
 }
 body {
   font-family: sans-serif;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 a:visited {
   color: blue;
