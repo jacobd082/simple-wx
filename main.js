@@ -153,7 +153,7 @@ function configS(loca, cond, temp, icon) {
     if (localStorage.showTemp=="1") {
         showTemp = "<p>The temperature is "+temp+"</p>"
     }
-    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:setGPS()">Reset</a></div><div class="container"><div class="center">     <img src="Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a id="settings" href="settings">Settings</a></div></div>')
+    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:resetLoca()">Reset</a></div><div class="container"><div class="center">     <img src="Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a id="settings" href="settings">Settings</a></div></div>')
 
     // iOS config
     var a = location.href; 
@@ -164,3 +164,8 @@ function configS(loca, cond, temp, icon) {
 }
 
 
+function resetLoca() {
+    localStorage.removeItem("long")
+    localStorage.removeItem("lat")
+    window.open(window.location.href, "_self")
+}
