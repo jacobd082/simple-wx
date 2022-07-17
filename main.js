@@ -1,14 +1,5 @@
 // Copyright (c) Jacob Drath 2022
 
-if (navigator.onLine==false) {
-    Toastify({
-        text: "No internet connection",
-        style: {
-          background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
-        },
-        gravity: "bottom"
-      }).showToast();
-}
 
 
 if (localStorage.getItem("lat")==null) {} else {
@@ -89,6 +80,16 @@ function setGPS() {
 
 function getWX () {
     document.body.innerHTML=("<center><h1>Please wait... <img src='load.gif' width='40px'></h1><p>If this page stays, visit <a href='https://github.com/jacobd082/wx/issues/5#issuecomment-1159279625'>this help article</a></p></center>")
+    if (navigator.onLine==false) {
+        document.body.innerHTML=("<center><h1>No Internet...</h1><p>Your weather will appear when your Internet connection is restored.</p></center>")
+        Toastify({
+            text: "No internet connection",
+            style: {
+              background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+            },
+            gravity: "bottom"
+          }).showToast();
+    }
     fetch('https://api.openweathermap.org/data/2.5/weather?units=imperial&lat='+localStorage.getItem("lat")+'&lon='+localStorage.getItem("long")+'&appid=b4b150ac011d2c689bb0960425153055')
         .then(response => response.json())
         .then(data => showWX(data))
@@ -169,3 +170,42 @@ function resetLoca() {
     localStorage.removeItem("lat")
     window.open(window.location.href, "_self")
 }
+
+
+
+function checkInternet() {
+    if (sessionStorage.getItem("noInternetAlertShown")=="1") {
+        if (navigator.onLine) {
+            Toastify({
+                text: "Internet was found again...",
+                avatar: "load.gif",
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                gravity: "bottom"
+              }).showToast();
+            sessionStorage.clear()
+            setTimeout(function(){
+                window.open(window.location.href, "_self")
+            }, 1800);
+        }
+    } else {
+        if (navigator.onLine==false) {
+            Toastify({
+                text: "No internet connection",
+                style: {
+                  background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+                },
+                duration: -1,
+                close: true,
+                gravity: "bottom"
+              }).showToast();
+              sessionStorage.setItem("noInternetAlertShown", "1")
+        }
+    }
+    setTimeout(function(){
+        checkInternet()
+    }, 2000);
+}
+
+checkInternet()
