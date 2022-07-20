@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Not Found! - Simple WX</title>
+        <link rel="icon" href="https://wx.jacobdrath.co/Logo.png">
+    </head>
+    <body style="font-family: sans-serif;">
+        <a href="https://wx.jacobdrath.co/">Simple Weather</a>/system/404.html
+        <h1>Page Not Found!</h1>
+        <h2>ERROR: 404</h2>
+        <p id="rantxt"></p>
+        <h3>***DEBUG INFO***</h3>
+
+        <p>Server could not find requested file: <i id="url"></i></p>
+        <script>
+            var url = window.location.href
+            if (url.endsWith("/")) {
+                url = (url + "index.html")
+            }
+            document.getElementById("url").innerHTML=(url)
+        </script>
+
+        <script>
+            function makeid(length) {
+                var result           = '';
+                var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()-=_+;:|{}[]';
+                var charactersLength = characters.length;
+                for ( var i = 0; i < length; i++ ) {
+                result += characters.charAt(Math.floor(Math.random() * 
+            charactersLength));
+            }
+            return result;
+            }
+            function rantxt() {
+                document.getElementById("rantxt").innerHTML=(makeid(18))
+                setTimeout(function(){
+                    rantxt()
+                }, 50);
+            }
+            rantxt()
+        </script>
+    </body>
+</html>
