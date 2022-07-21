@@ -1,0 +1,28 @@
+name: ❓ Feature Request
+description: Have an idea? Share it with us.
+title: ""
+labels: ["Feature Request"]
+body:
+  - type: checkboxes
+    id: new-bug
+    attributes:
+      label: Is there an existing request for this?
+      description: Please search to see if an request already exists for your idea.
+      options:
+      - label: I have searched the existing issues
+        required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Description of the your idea
+      description: Tell us about what you want to see in simple weather.
+    validations:
+      required: true
+  - type: input
+    id: linked
+    attributes:
+      label: Is there a issue related to this?
+      description: If there is please type its ID number below. If there is not please leave it blank.
+      placeholder: ex. email@example.com
+    validations:
+      required: false
