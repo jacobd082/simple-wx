@@ -32,3 +32,13 @@ body:
        - Other (Please say in body)
     validations:
       required: true
+
+
+  - type: checkboxes
+    id: added-labels
+    attributes:
+      label: Have you added the appropriate labels?
+      description: Please add the labels that fit this issue in the sidebar.
+      options:
+      - label: I have added the labels
+        required: true
