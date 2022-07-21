@@ -1,0 +1,11 @@
+bug 🐛:
+    - '(bug|error)'
+
+javascript:
+    - '(javascript|js)'
+
+Safari 🧭 :
+    - '(ios|iphone|macos|safari|mac|macbook|imac)'
+
+Chrome / Firefox / Opera:
+    - '(chrome|firefox|opera|chromebook|chromium|edge|explorer)'
