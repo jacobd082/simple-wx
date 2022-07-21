@@ -159,6 +159,18 @@ function configS(loca, cond, temp, icon) {
 
     document.getElementById("debug").style.display=("none")
 
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var c = url.searchParams.get("ref");
+    if (c=="404") {
+        Toastify({
+            text: "Page not found",
+            style: {
+            background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+            },
+            gravity: "bottom"
+        }).showToast();
+    }
     // iOS config
     var a = location.href; 
     var b = a.substring(a.indexOf("?")+1);
