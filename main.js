@@ -79,7 +79,7 @@ function setGPS() {
 
 
 function getWX () {
-    document.body.innerHTML=("<center><h1>Please wait... <img src='load.gif' width='40px'></h1><p>If this page stays, visit <a href='https://github.com/jacobd082/wx/issues/5#issuecomment-1159279625'>this help article</a></p></center>")
+    document.body.innerHTML=("<div class='center'><img src='load.gif' width='40px'></div>")
     if (navigator.onLine==false) {
         document.body.innerHTML=("<center><h1>No Internet...</h1><p>Your weather will appear when your Internet connection is restored.</p></center>")
         Toastify({
