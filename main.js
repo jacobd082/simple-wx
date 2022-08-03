@@ -79,7 +79,7 @@ function setGPS() {
 
 
 function getWX () {
-    document.body.innerHTML=("<center><h1>Please wait... <img src='load.gif' width='40px'></h1><p>If this page stays, visit <a href='https://github.com/jacobd082/wx/issues/5#issuecomment-1159279625'>this help article</a></p></center>")
+    document.body.innerHTML=("<div class='center'><img src='load.gif' width='40px'></div>")
     if (navigator.onLine==false) {
         document.body.innerHTML=("<center><h1>No Internet...</h1><p>Your weather will appear when your Internet connection is restored.</p></center>")
         Toastify({
@@ -153,6 +153,9 @@ function configS(loca, cond, temp, icon) {
     if (localStorage.showTemp==undefined) {localStorage.setItem("showTemp", "0")}
     showTemp = ""
     if (localStorage.showTemp=="1") {
+        if (localStorage.getItem("unit")=="metric") {
+            temp = Math.floor((temp - 32) * 5 / 9)
+        }
         showTemp = "<p>The temperature is "+temp+"</p>"
     }
     document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:resetLoca()">Reset</a></div><div class="container"><div class="center">     <img src="Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a id="settings" href="settings">Settings</a><div id="debug" style="background: gray;"><p>DEBUG MENU</p><table><tr><td>weatherAvailable</td><td><b>true</b></td></tr><tr><td>weatherData</td><td><a href="javascript:seeData()">See data...</a></td></tr><tr><td>showTemp</td><td><b>'+String(Boolean(Number(localStorage.showTemp)))+'</b></td></tr><tr><td>showIcon</td><td><b>'+String(Boolean(Number(localStorage.getItem("icon-show"))))+'</b></td></tr><tr><td>backgroundColor</td><td><input id="bgColor" type="color" oninput="setBGcolor()"></td></tr><tr><td>latitude</td><td>'+localStorage.lat+'</td></tr><tr><td>longitude</td><td>'+localStorage.long+'</td></tr></table></div></div></div>')
