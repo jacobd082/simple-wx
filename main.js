@@ -80,7 +80,7 @@ function setGPS() {
 
 function getWX () {
     //document.body.style.background=("")
-    document.body.innerHTML=("<div class='center'><img src='load.png' width='70px'></div>")
+    document.body.innerHTML=("<div class='center'><img src='load.png' width='70px' style='background: white; border-radius: 20px;'></div>")
     if (navigator.onLine==false) {
         document.body.innerHTML=("<center><h1>No Internet...</h1><p>Your weather will appear when your Internet connection is restored.</p></center>")
         Toastify({
