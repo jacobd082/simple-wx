@@ -181,13 +181,6 @@ function configS(loca, cond, temp, icon) {
     if (b=="ios=true") {
         document.getElementById("settings").style.display=("none")
     }
-
-    // MODS
-    if (!(localStorage.mod==undefined)) {
-        var mod_cont = JSON.parse(localStorage.mod)
-        document.body.style.background=mod_cont.style.background
-        document.body.style.color=mod_cont.style.foreground
-    }
 }
 
 

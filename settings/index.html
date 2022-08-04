@@ -13,8 +13,8 @@
 
 <ul id="myUL">
     <li><a href="unit">Change unit</a></li>
-    <li><a>Show weather icon <input id="icon" type="checkbox" oninput="setIcon()"></a></li>
-    <li><a>Show temperature <input id="showTemp" type="checkbox" oninput="setTemp()"></a></li>
+    <li><a onclick="document.getElementById('icon').click()">Show weather icon <input id="icon" type="checkbox" oninput="setIcon()"></a></li>
+    <li><a onclick="document.getElementById('showTemp').click()">Show temperature <input id="showTemp" type="checkbox" oninput="setTemp()"></a></li>
     <li><a href="https://github.com/jacobd082/wx/">Open Source</a></li>
     <li><a href="https://wx.jacobdrath.co/conditions">See conditions guide...</a></li>
     <li><a href="delete">Delete your data...</a></li>
@@ -23,4 +23,15 @@
 <script src="main.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
+<style>
+    body {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+</style>
 </html>
