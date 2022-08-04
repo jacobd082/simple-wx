@@ -8,7 +8,7 @@ if (localStorage.getItem("lat")==null) {} else {
 
 
 function setZIP() {
-    document.getElementById("zipr").innerHTML=("<img src='load.gif' width='40px'>Please wait...")
+    document.getElementById("zipr").innerHTML=("<img src='load.png' width='40px'>Please wait...")
     fetch('https://api.openweathermap.org/geo/1.0/zip?zip='+document.getElementById("zip").value+','+document.getElementById("zip-c").value+'&appid=b4b150ac011d2c689bb0960425153055')
         .then(response => response.json())
         .then(data => handleZIP(data))
@@ -27,7 +27,7 @@ function handleZIP(e) {
         localStorage.setItem("unit", document.getElementById("unit-b").value)
         localStorage.setItem("long", e.lon)
         localStorage.setItem("lat", e.lat)
-        document.getElementById("zipr").innerHTML=("<p>Location was saved as "+e.name+". Weather will open shortly... <img src='load.gif' width='40px'></p>")
+        document.getElementById("zipr").innerHTML=("<p>Location was saved as "+e.name+". Weather will open shortly... <img src='load.png' width='40px'></p>")
         Toastify({
             text: "Location was saved. Please wait...",
             style: {
@@ -79,7 +79,8 @@ function setGPS() {
 
 
 function getWX () {
-    document.body.innerHTML=("<div class='center'><img src='load.gif' width='40px'></div>")
+    //document.body.style.background=("")
+    document.body.innerHTML=("<div class='center'><img src='load.png' width='70px'></div>")
     if (navigator.onLine==false) {
         document.body.innerHTML=("<center><h1>No Internet...</h1><p>Your weather will appear when your Internet connection is restored.</p></center>")
         Toastify({
@@ -212,7 +213,7 @@ function checkInternet() {
         if (navigator.onLine) {
             Toastify({
                 text: "Internet was found again...",
-                avatar: "load.gif",
+                avatar: "load.png",
                 style: {
                   background: "linear-gradient(to right, #00b09b, #96c93d)",
                 },
