@@ -151,6 +151,7 @@ function showWX(w) {
 
 
 function configS(loca, cond, temp, icon) {
+    sessionStorage.setItem("cond", cond)
     if (localStorage.showTemp==undefined) {localStorage.setItem("showTemp", "0")}
     showTemp = ""
     if (localStorage.showTemp=="1") {
@@ -265,7 +266,7 @@ function cmd(cmd) {
             if (after(cmd, " ").trim() == "bg") {
                 toasterror("ERROR: Missing value. \n> bg #color#\n_____^^^^^^^")
             } else {
-                document.body.style.backgroundColor=(after(cmd, " "))
+                document.body.style.background=(after(cmd, " "))
             }
         } else if (cmd == "reset-location") {
             resetLoca()
@@ -283,12 +284,36 @@ function cmd(cmd) {
                 .then((response) => response.json())
                 .then((data) => URLmod(data));
 
+        } else if (cmd.startsWith("if rain")) {
+            if (sessionStorage.getItem("cond")=="raining") {
+                callCmd(after(after(cmd, " "), " "))
+            }
+        } else if (cmd.startsWith("if clear")) {
+            if ((sessionStorage.getItem("cond")=="sunny") || (sessionStorage.getItem("cond")=="dark")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
+        } else if (cmd.startsWith("if cold")) {
+            if ((sessionStorage.getItem("cond")=="cold")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
+        } else if (cmd.startsWith("if hot")) {
+            if ((sessionStorage.getItem("cond")=="hot")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
+        } else if (cmd.startsWith("if cloudy")) {
+            if ((sessionStorage.getItem("cond")=="partly cloudy") || (sessionStorage.getItem("cond")=="cloudy")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
         } else {
             let lengthOfCmd = cmd.length
             let str = '^'.repeat(lengthOfCmd);
             toasterror("Command not found:\n> "+cmd+"\n__"+str)
         }
     }
+}
+
+function callCmd(c) {
+    cmd(c)
 }
 
 
