@@ -238,11 +238,77 @@ function checkInternet() {
 
 checkInternet()
 
+function after(a, b) {
+    return a.substring(a.indexOf(b)+1);
+}
+
+let cmdtime = 0
+
+function toasterror(a) {
+    Toastify({
+        text: a,
+        style: {
+          background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+          "font-family": "IBM Plex Mono, monospace"
+        },
+        gravity: "bottom"
+      }).showToast();
+}
+
+
+function cmd(cmd) {
+    if (cmd==null) {
+        toasterror("Canceled")
+    } else {
+        if (cmd.startsWith("bg")) {
+            console.log(after(cmd, " "))
+            if (after(cmd, " ").trim() == "bg") {
+                toasterror("ERROR: Missing value. \n> bg #color#\n_____^^^^^^^")
+            } else {
+                document.body.style.backgroundColor=(after(cmd, " "))
+            }
+        } else if (cmd == "reset-location") {
+            resetLoca()
+        } else if (cmd.startsWith("fgc")) {
+            console.log(after(cmd, " "))
+            if (after(cmd, " ").trim() == "fgc") {
+                toasterror("ERROR: Missing value. \n> fgc #color#\n_____^^^^^^^")
+            } else {
+                document.body.style.color=(after(cmd, " "))
+            }
+        } else if (cmd.startsWith("set")) {
+            configS("Custom (via debug)", after(cmd, " "), "70", "The following was set via debug")
+        } else if (cmd.startsWith("load")) { 
+            fetch(after(cmd, " ")+".sw")
+                .then((response) => response.json())
+                .then((data) => URLmod(data));
+
+        } else {
+            let lengthOfCmd = cmd.length
+            let str = '^'.repeat(lengthOfCmd);
+            toasterror("Command not found:\n> "+cmd+"\n__"+str)
+        }
+    }
+}
+
+
+function URLmod(data) {
+    data.cmds.forEach(cm => {
+        cmd(cm)
+    });
+}
 
 
 // define a handler
 function doc_keyUp(e) {
-    if (e.ctrlKey && e.key === 'd') {
+    if (e.ctrlKey && e.key == 'c') {
+        cmdtime += 1
+        if (cmdtime % 2 == 0) {
+            let cmdtxt = prompt("Command Prompt:")
+            cmd(cmdtxt)
+        }
+    }
+    else if (e.ctrlKey && e.key === 'd') {
         if (document.getElementById("debug").style.display=="block") {
             console.log("DEBUG MODE OFF")
             document.getElementById("debug").style.display=("none")
