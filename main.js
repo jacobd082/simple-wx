@@ -304,6 +304,8 @@ function cmd(cmd) {
             if ((sessionStorage.getItem("cond")=="partly cloudy") || (sessionStorage.getItem("cond")=="cloudy")) {
                 callCmd(after(after(cmd, " "), " "))
             }
+        } else if (cmd.startsWith("alert")) {
+            toasterror(after(cmd, " "))
         } else {
             let lengthOfCmd = cmd.length
             let str = '^'.repeat(lengthOfCmd);
