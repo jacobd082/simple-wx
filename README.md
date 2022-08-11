@@ -18,3 +18,4 @@ Simple Weather uses these great tools:
 - [Report Issue](https://github.com/jacobd082/simple-wx/issues/new/choose)
 - [Troubleshooting](https://github.com/jacobd082/simple-wx/wiki/Troubleshooting)
 - [Wiki](https://github.com/jacobd082/simple-wx/wiki)
+- [Modding Documentation](https://github.com/jacobd082/simple-wx/wiki/Modding-Documentation)
