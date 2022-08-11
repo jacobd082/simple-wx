@@ -272,7 +272,7 @@ function cmd(cmd) {
         } else if (cmd.startsWith("fgc")) {
             console.log(after(cmd, " "))
             if (after(cmd, " ").trim() == "fgc") {
-                toasterror("ERROR: Missing value. \n> fgc #color#\n_____^^^^^^^")
+                toasterror("ERROR: Missing value. \n> fgc #color#\n______^^^^^^^")
             } else {
                 document.body.style.color=(after(cmd, " "))
             }
