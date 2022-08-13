@@ -132,7 +132,7 @@ function showWX(w) {
         icon += "<p style='color: red;'><b>Volcanic Ash</b><br>Limit your time outdoors and use a dust mask or cloth mask as a last resort if you must be outside. Avoid areas downwind and river valleys downstream of the volcano. <a href='https://www.ready.gov/volcanoes'>Learn more...</a></p>"
     }
     if ((w.weather[0].main=="Sand")) {
-        icon += "<p style='color: red;'><b>Sand / Dust Whirls</b><br>A Dust Whirl was reported in your area. Please stay inside. Dust Whirls usually last a few minuets, and do not cause very much harm.</p>"
+        icon += "<p style='color: red;'><b>Sand / Dust Whirls</b><br>A Dust Whirl was reported in your area. Please stay inside. Dust Whirls usually last a few minutes, and do not cause very much harm.</p>"
     }
     if ((w.weather[0].main=="Extreme")) {
         icon += "<p style='color: red;'><b>There is extreme weather in your area</b></p>"
