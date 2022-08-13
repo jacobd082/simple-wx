@@ -1,6 +1,12 @@
 # Conditions
 This will show you the diforent conditions that you can encounter is Simple Weather.
 
+```
+This file is out of date.
+Last updated: APR 10, 2022
+Needs to be updated to AUG 13, 2022
+```
+
 ### Hot
 When the temp is over 90
 

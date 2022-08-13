@@ -116,6 +116,8 @@ function showWX(w) {
         if (localStorage.getItem("unit")=="imperial") {
             configS(l, "hot", temp, icon)
         }
+    } else if (w.weather[0].main=="thunderstorm") {
+        configS(l, "thundering", temp, icon)
     }
     else if (w.weather[0].main=="Rain") {
         configS(l, "raining", temp, icon)
@@ -315,6 +317,10 @@ function cmd(cmd) {
             }
         } else if (cmd.startsWith("if snow")) {
             if ((sessionStorage.getItem("cond")=="snowing")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
+        } else if (cmd.startsWith("if storm")) {
+            if ((sessionStorage.getItem("cond")=="thundering")) {
                 callCmd(after(after(cmd, " "), " "))
             }
         } else if (cmd.startsWith("alert")) {
