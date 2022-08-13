@@ -51,6 +51,19 @@ function setBGA() {
         }).showToast();
 }
 
+
+document.getElementById("txtBG").checked=(Boolean(Number(localStorage.getItem("txtBG"))))
+function txtBG() {
+  localStorage.setItem("txtBG",Number(document.getElementById("txtBG").checked))
+  Toastify({
+          text: "Saved!",
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          gravity: "bottom"
+        }).showToast();
+}
+
 if (localStorage.getItem("showBG")=="1") {
   document.getElementById("bg-opt").style.display="block"
 } else {
