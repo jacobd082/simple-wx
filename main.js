@@ -8,14 +8,22 @@ if (localStorage.getItem("lat")==null) {} else {
 
 
 function setZIP() {
-    document.getElementById("zipr").innerHTML=("<img src='load.png' width='40px'>Please wait...")
-    fetch('https://api.openweathermap.org/geo/1.0/zip?zip='+document.getElementById("zip").value+','+document.getElementById("zip-c").value+'&appid=b4b150ac011d2c689bb0960425153055')
-        .then(response => response.json())
-        .then(data => handleZIP(data))
+    document.getElementById("zip").style.borderBottom="2px solid black"
+    document.getElementById("zip-c").style.borderBottom="2px solid black"
+    if (document.getElementById("zip-c").value=="not-selected") {
+        document.getElementById("zipr").innerHTML=("<p style='color: red;'>Please select your country</p>")
+        document.getElementById("zip-c").style.borderBottom="2px solid red"
+    } else {
+        document.getElementById("zipr").innerHTML=("<img src='load.png' width='40px'>Please wait...")
+        fetch('https://api.openweathermap.org/geo/1.0/zip?zip='+document.getElementById("zip").value+','+document.getElementById("zip-c").value+'&appid=b4b150ac011d2c689bb0960425153055')
+            .then(response => response.json())
+            .then(data => handleZIP(data))
+    }
 }
 function handleZIP(e) {
     if (e.name==undefined) {
         document.getElementById("zipr").innerHTML=("<p style='color: red;'>ZIP Code is invalid</p>")
+        document.getElementById("zip").style.borderBottom="2px solid red"
         Toastify({
             text: "ZIP code is invalid.",
             style: {

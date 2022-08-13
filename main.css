@@ -45,3 +45,34 @@ a:after {
 a:hover:after {
   right: 0;
 }
+
+
+input[type=text]:focus {
+  border: none;
+  border-bottom: 2px solid blue;
+}
+
+input[type=text], select {
+  appearance: none;
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+select {
+  height: 17px;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 80px;
+  height: 17px;
+}
+
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
