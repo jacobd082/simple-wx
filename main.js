@@ -185,7 +185,11 @@ function configS(loca, cond, temp, icon) {
 
 
     if (localStorage.showBG=="1") {
-        cmd("load backgrounds/backgrounds")
+        if (localStorage.AniBG=="1") {
+            cmd("load backgrounds/ani_bg")
+        } else {
+            cmd("load backgrounds/backgrounds")
+        }
     }
 }
 

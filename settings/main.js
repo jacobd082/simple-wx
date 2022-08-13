@@ -25,6 +25,11 @@ function setIcon() {
 document.getElementById("showBG").checked=(Boolean(Number(localStorage.getItem("showBG"))))
 function setBG() {
   localStorage.setItem("showBG",Number(document.getElementById("showBG").checked))
+  if (localStorage.getItem("showBG")=="1") {
+    document.getElementById("bg-opt").style.display="block"
+  } else {
+    document.getElementById("bg-opt").style.display="none"
+  }
   Toastify({
           text: "Saved!",
           style: {
@@ -33,6 +38,25 @@ function setBG() {
           gravity: "bottom"
         }).showToast();
 }
+
+document.getElementById("AniBG").checked=(Boolean(Number(localStorage.getItem("AniBG"))))
+function setBGA() {
+  localStorage.setItem("AniBG",Number(document.getElementById("AniBG").checked))
+  Toastify({
+          text: "Saved!",
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          gravity: "bottom"
+        }).showToast();
+}
+
+if (localStorage.getItem("showBG")=="1") {
+  document.getElementById("bg-opt").style.display="block"
+} else {
+  document.getElementById("bg-opt").style.display="none"
+}
+
 
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
