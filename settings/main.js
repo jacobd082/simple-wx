@@ -22,6 +22,18 @@ function setIcon() {
         }).showToast();
 }
 
+document.getElementById("showBG").checked=(Boolean(Number(localStorage.getItem("showBG"))))
+function setBG() {
+  localStorage.setItem("showBG",Number(document.getElementById("showBG").checked))
+  Toastify({
+          text: "Saved!",
+          style: {
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+          },
+          gravity: "bottom"
+        }).showToast();
+}
+
 function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");

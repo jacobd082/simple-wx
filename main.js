@@ -182,6 +182,11 @@ function configS(loca, cond, temp, icon) {
     if (b=="ios=true") {
         document.getElementById("settings").style.display=("none")
     }
+
+
+    if (localStorage.showBG=="1") {
+        cmd("load backgrounds/backgrounds")
+    }
 }
 
 
@@ -304,6 +309,10 @@ function cmd(cmd) {
             if ((sessionStorage.getItem("cond")=="partly cloudy") || (sessionStorage.getItem("cond")=="cloudy")) {
                 callCmd(after(after(cmd, " "), " "))
             }
+        } else if (cmd.startsWith("if snow")) {
+            if ((sessionStorage.getItem("cond")=="snowing")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
         } else if (cmd.startsWith("alert")) {
             toasterror(after(cmd, " "))
         } else {
@@ -324,6 +333,7 @@ function URLmod(data) {
         cmd(cm)
     });
 }
+
 
 
 // define a handler
