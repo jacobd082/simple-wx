@@ -99,12 +99,23 @@ function getWX () {
 
 function showWX(w) {
     sessionStorage.setItem("debug--loadedData", JSON.stringify(w))
-    var l = w.name
+    var l = w.name + " (" + w.sys.country
+    if (localStorage.unit=="metric") {
+        l += " - <a href='settings/unit.html'>C</a>)"
+    } else {
+        l += " - <a href='settings/unit.html'>F</a>)"
+    }
     var temp = Math.floor(w.main.temp)
     if (localStorage.getItem("icon-show")=="1") {
         icon = "<img src='http://openweathermap.org/img/wn/"+w.weather[0].icon+"@2x.png' width='60px'><br>"
     } else {
         icon = ""
+    }
+    if (w.visibility<6000) {
+        icon += "<p style='color: orange;'><b>Low Visibility</b><br>Visibility is below 6 miles</p>"
+    }
+    if (w.main.humidity>70) {
+        icon += "<p style='color: orange;'><b>High Humidity</b><br>Humidity is above 70%</p>"
     }
     if (temp<10) {
         if (localStorage.getItem("unit")=="imperial") {
