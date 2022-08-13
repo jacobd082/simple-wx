@@ -119,11 +119,23 @@ function showWX(w) {
     } else {
         icon = ""
     }
-    if (w.visibility<6000) {
+    if ((w.visibility<6000)) {
         icon += "<p style='color: orange;'><b>Low Visibility</b><br>Visibility is below 6 miles</p>"
     }
-    if (w.main.humidity>70) {
-        icon += "<p style='color: orange;'><b>High Humidity</b><br>Humidity is above 70%</p>"
+    if ((w.main.humidity>75)) {
+        icon += "<p style='color: orange;'><b>High Humidity</b><br>Humidity is above 75%</p>"
+    }
+    if ((w.weather[0].main=="Tornado")) {
+        icon += "<p style='color: red;'><b>Tornado</b><br>There is an active tornado in your area. Please seek shelter. <a href='https://www.weather.gov/safety/tornado-during'>What to do in a tornado.</a></p>"
+    }
+    if ((w.weather[0].main=="Ash")) {
+        icon += "<p style='color: red;'><b>Volcanic Ash</b><br>Limit your time outdoors and use a dust mask or cloth mask as a last resort if you must be outside. Avoid areas downwind and river valleys downstream of the volcano. <a href='https://www.ready.gov/volcanoes'>Learn more...</a></p>"
+    }
+    if ((w.weather[0].main=="Sand")) {
+        icon += "<p style='color: red;'><b>Sand / Dust Whirls</b><br>A Dust Whirl was reported in your area. Please stay inside. Dust Whirls usually last a few minuets, and do not cause very much harm.</p>"
+    }
+    if ((w.weather[0].main=="Extreme")) {
+        icon += "<p style='color: red;'><b>There is extreme weather in your area</b></p>"
     }
     if (temp<10) {
         if (localStorage.getItem("unit")=="imperial") {
@@ -137,13 +149,30 @@ function showWX(w) {
         }
     } else if (w.weather[0].main=="thunderstorm") {
         configS(l, "thundering", temp, icon)
-    }
-    else if (w.weather[0].main=="Rain") {
+    } else if (w.weather[0].main=="Rain") {
+        configS(l, "raining", temp, icon)
+    } else if (w.weather[0].main=="Drizzle") {
         configS(l, "raining", temp, icon)
     } else if (w.weather[0].main=="Snow") {
         configS(l, "snowing", temp, icon)
-    } else if (w.visibility<4000) {
+    } else if (w.weather[0].main=="Smoke") {
+        configS(l, "smokey", temp, icon)
+    } else if (w.weather[0].main=="Mist") {
+        configS(l, "misting", temp, icon)
+    } else if (w.weather[0].main=="Haze") {
+        configS(l, "hazy", temp, icon)
+    } else if (w.weather[0].main=="Dust") {
+        configS(l, "dusty", temp, icon)
+    } else if ((w.visibility<4000) || (w.weather[0].main=="Fog")) {
         configS(l, "foggy", temp, icon)
+    } else if (w.weather[0].main=="Sand") {
+        configS(l, "sandy", temp, icon)
+    } else if (w.weather[0].main=="Ash") {
+        configS(l, "volcanic", temp, icon)
+    } else if (w.weather[0].main=="Squall") {
+        configS(l, "a squall", temp, icon)
+    } else if (w.weather[0].main=="Tornado") {
+        configS(l, "not good", temp, icon)
     } else if (w.wind.speed>25) {
         configS(l, "windy", temp, icon)
     } else if (w.weather[0].main=="Clouds") {
@@ -181,7 +210,7 @@ function configS(loca, cond, temp, icon) {
         }
         showTemp = "<p>The temperature is "+temp+"</p>"
     }
-    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:resetLoca()">Reset</a></div><div class="container"><div class="center">     <img src="Small-Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a id="settings" href="settings">Settings</a><div id="debug" style="background: gray;"><p>DEBUG MENU</p><table><tr><td>weatherAvailable</td><td><b>true</b></td></tr><tr><td>weatherData</td><td><a href="javascript:seeData()">See data...</a></td></tr><tr><td>showTemp</td><td><b>'+String(Boolean(Number(localStorage.showTemp)))+'</b></td></tr><tr><td>showIcon</td><td><b>'+String(Boolean(Number(localStorage.getItem("icon-show"))))+'</b></td></tr><tr><td>backgroundColor</td><td><input id="bgColor" type="color" oninput="setBGcolor()"></td></tr><tr><td>latitude</td><td>'+localStorage.lat+'</td></tr><tr><td>longitude</td><td>'+localStorage.long+'</td></tr></table></div></div></div>')
+    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:resetLoca()">Reset</a></div><div class="container"><div class="center" style="max-width: 300px;">     <img src="Small-Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a id="settings" href="settings">Settings</a><div id="debug" style="background: gray;"><p>DEBUG MENU</p><table><tr><td>weatherAvailable</td><td><b>true</b></td></tr><tr><td>weatherData</td><td><a href="javascript:seeData()">See data...</a></td></tr><tr><td>showTemp</td><td><b>'+String(Boolean(Number(localStorage.showTemp)))+'</b></td></tr><tr><td>showIcon</td><td><b>'+String(Boolean(Number(localStorage.getItem("icon-show"))))+'</b></td></tr><tr><td>backgroundColor</td><td><input id="bgColor" type="color" oninput="setBGcolor()"></td></tr><tr><td>latitude</td><td>'+localStorage.lat+'</td></tr><tr><td>longitude</td><td>'+localStorage.long+'</td></tr></table></div></div></div>')
     document.title="It is "+cond+" | Simple Weather"
     document.getElementById("debug").style.display=("none")
 
