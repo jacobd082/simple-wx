@@ -173,7 +173,7 @@ function showWX(w) {
         if (localStorage.getItem("unit")=="imperial") {
             configS(l, "hot", temp, icon)
         }
-    } else if (w.weather[0].main=="thunderstorm") {
+    } else if (w.weather[0].main=="Thunderstorm") {
         configS(l, "thundering", temp, icon)
     } else if (w.weather[0].main=="Rain") {
         configS(l, "raining", temp, icon)
