@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap" rel="stylesheet">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -41,16 +42,16 @@
     <meta property="twitter:site" content="@Simple_WX">
 </head>
 <body>
-    <img src="Small-Logo.png" width="40px" height="40px"><span style="font-size: 35px; margin: 0; padding: 0;">Simple Weather</span>
-    <center>
-    <h1>The simplest weather app.</h1>
-    <p>Simple Weather explains weather in simple terms that anyone can read!</p>
-    <p style="max-width: 400px;">You can start here in two ways. In order to provide your weather, this site will need your location. Your location is not sent anywhere but to get your weather. You can provide it by using your current location.</p>
+    <img src="Small-Logo.png" width="40px" height="40px" alt="Logo"><span style="font-size: 35px; font-family: 'Noto Sans', sans-serif;">Simple Weather</span>
+    <br><br><br><br><br>
+    <img src="Logo.png" width="100px" height="100px">
+    <h1 style="font-family: 'Noto Sans', sans-serif; font-size: 72px; background: -webkit-linear-gradient(lightblue, blue); -webkit-background-clip: text; -webkit-text-fill-color: transparent;; font-size: 50px; margin-bottom: 0px;">The simplest weather website.</h1>
+    <h3>Simple Weather explains the weather in its most simple form, in just one simple sentence.</h3>
     <select id="unit-a" style="display: none;">
         <option value="imperial">F</option>
         <option value="metric">C</option>
     </select>
-    <button onclick="setGPS()">Use my current location</button>
+    <button onclick="setGPS()" class="curLoc">Use my current location</button>
     <div>
         <p>Or enter your ZIP code:</p>
         <input id="zip" placeholder="ZIP code" type="text">
@@ -322,8 +323,6 @@
         <div id="zipr"></div>
     </div>
     <br>
-    <p>Project by <a href="https://jacobdrath.co">Jacob Drath</a></p>
-    </center>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script defer src="main.js"></script>
 </body>

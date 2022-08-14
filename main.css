@@ -72,6 +72,13 @@ button {
   height: 17px;
 }
 
+button.curLoc {
+  height: auto;
+  padding: 10px;
+  font-size: 15px;
+  background-image: linear-gradient(to right, rgb(0, 194, 158) , blue , purple);
+  cursor: pointer;
+}
 
 input:focus, textarea:focus, select:focus{
   outline: none;
