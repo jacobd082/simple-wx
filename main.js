@@ -266,10 +266,18 @@ function configS(loca, cond, temp, icon) {
             cmd("load backgrounds/backgrounds")
         }
         if (localStorage.txtBG=="1") {
+            var i = document.getElementById("center").style
+            i.borderRadius=("10px")
+            i.padding=("10px")
+            i.position = "fixed"
+            i.backdropFilter = "blur(20px)"
+            i.webkitBackdropFilter = "blur(10px)"
+            /*
             document.getElementById("center").style.backgroundColor=("white")
             document.getElementById("center").style.padding=("10px")
             document.getElementById("center").style.color=("black")
             document.getElementById("center").style.borderRadius=("10px")
+            */
         }
     }
 }
@@ -402,6 +410,14 @@ function cmd(cmd) {
             if ((sessionStorage.getItem("cond")=="thundering")) {
                 callCmd(after(after(cmd, " "), " "))
             }
+        } else if (cmd.startsWith("vhbgurl")) {
+            console.log("url("+after(cmd, " ")+window.innerHeight+")")
+            document.body.style.background=("url("+after(cmd, " ")+window.innerHeight+")")
+        } else if (cmd.startsWith("vwbgurl")) {
+            console.log("url("+after(cmd, " ")+window.innerWidth+")")
+            document.body.style.background=("url("+after(cmd, " ")+window.innerWidth+")")
+        } else if (cmd.startsWith("vw")) {
+            callCmd(after((cmd, " "), " ")+String(window.innerWidth))
         } else if (cmd.startsWith("alert")) {
             toasterror(after(cmd, " "))
         } else {

@@ -12,18 +12,18 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search..." title="Type in a name">
 
 <ul id="myUL">
-    <li><a href="unit">Change unit</a></li>
-    <li><a onclick="document.getElementById('icon').click()">Show weather icon <input id="icon" type="checkbox" oninput="setIcon()"></a></li>
-    <li><a onclick="document.getElementById('showTemp').click()">Show temperature <input id="showTemp" type="checkbox" oninput="setTemp()"></a></li>
-    <li><a onclick="document.getElementById('showBG').click()">Dynamic Background <input id="showBG" type="checkbox" oninput="setBG()"></a></li>
+    <li title="Change the unit of temperature measurement"><a href="unit">Change unit</a></li>
+    <li title="Show the Weather Icon on the landing page (Icons sourced by OpenWeatherMap)"><a onclick="document.getElementById('icon').click()">Show weather icon <input id="icon" type="checkbox" oninput="setIcon()"></a></li>
+    <li title="Show the temperature in the chosen unit on the landing page"><a onclick="document.getElementById('showTemp').click()">Show temperature <input id="showTemp" type="checkbox" oninput="setTemp()"></a></li>
+    <li title="Show a background that changes with the weather."><a onclick="document.getElementById('showBG').click()">Dynamic Background <input id="showBG" type="checkbox" oninput="setBG()"></a></li>
     <div id="bg-opt">
-      <li><a onclick="document.getElementById('AniBG').click()">Animated Background <input id="AniBG" type="checkbox" oninput="setBGA()"></a></li>
-      <li><a onclick="document.getElementById('txtBG').click()">Text Background <input id="txtBG" type="checkbox" oninput="txtBG()"></a></li>
+      <li title="Animate the dynamic background"><a onclick="document.getElementById('AniBG').click()">Animated Background <input id="AniBG" type="checkbox" oninput="setBGA()"></a></li>
+      <li title="Show a bordered background around the main content"><a onclick="document.getElementById('txtBG').click()">Text Background <input id="txtBG" type="checkbox" oninput="txtBG()"></a></li>
     </div>
-    <li><a href="https://github.com/jacobd082/wx/">Open Source</a></li>
+    <li title="See the Simple Weather GitHub"><a href="https://github.com/jacobd082/wx/">Open Source</a></li>
     <li><a href="https://wx.jacobdrath.co/conditions">See conditions guide...</a></li>
-    <li><a href="delete">Delete your data...</a></li>
-    <li><a href="https://www.twitter.com/Simple_WX" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white&label=Follow Us&labelColor=0c7dc2"></a></li>
+    <li title="Delete all local data stored on this device"><a href="delete">Delete your data...</a></li>
+    <li title="Follow us on Twitter!"><a href="https://www.twitter.com/Simple_WX" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231DA1F2.svg?style=for-the-badge&logo=Twitter&logoColor=white&label=Follow Us&labelColor=0c7dc2"></a></li>
     <br>
     Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.
 </ul>
