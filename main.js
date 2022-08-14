@@ -123,7 +123,7 @@ function showWX(w) {
         icon += "<p style='color: orange;'><b>Low Visibility</b><br>Visibility is below 6 miles</p>"
     }
     if ((w.main.humidity>75)) {
-        icon += "<p style='color: orange;'><b>High Humidity</b><br>Humidity is above 75%</p>"
+        icon += "<p style='color: orange;'><b>High Humidity</b><br>Humidity is " + w.main.humidity + "%</p>"
     }
     if ((w.weather[0].main=="Tornado")) {
         icon += "<p style='color: red;'><b>Tornado</b><br>There is an active tornado in your area. Please seek shelter. <a href='https://www.weather.gov/safety/tornado-during'>What to do in a tornado.</a></p>"
