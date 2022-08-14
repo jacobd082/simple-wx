@@ -52,6 +52,11 @@
         <option value="metric">C</option>
     </select>
     <button onclick="setGPS()" class="curLoc">Use my current location</button>
+    <p>Or search your city name:</p>
+    <input type="text" placeholder="City name" id="cityName" class="se">
+    <button onclick="loadCity()">Search</button>
+    <div id="results"></div>
+    <p style="max-width: 400px; color: gray;"><i>For a more specific search, add state and country codes to the end. For example, "New York, NY, US" or "Paris, FR"</i></p>
     <div>
         <p>Or enter your ZIP code:</p>
         <input id="zip" placeholder="ZIP code" type="text">

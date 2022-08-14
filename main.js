@@ -86,6 +86,32 @@ function setGPS() {
 }
 
 
+function loadCity() {
+    document.getElementById("results").innerHTML=("<img src='load.png' width='40px'> Loading...")
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q='+document.getElementById("cityName").value+'&limit=5&appid=b4b150ac011d2c689bb0960425153055')
+        .then((response) => response.json())
+        .then((data) => handleCityData(data));
+
+}
+
+function handleCityData(e) {
+    //console.log(e)
+    document.getElementById("results").innerHTML = ""
+    e.forEach(item => {
+        document.getElementById("results").innerHTML += "<a href='javascript:setWithCords("+item.lat+", "+item.lon+")'>"+item.name+", "+item.state+", "+item.country+"</a><br>"
+    })
+    if (e.length==0) {
+        document.getElementById("results").innerHTML = "<p style='color: red;'>No Results</p>"
+    }
+}
+
+
+function setWithCords(lat, long) {
+    localStorage.setItem("long",long)
+    localStorage.setItem("lat",lat)
+    getWX()
+}
+
 function getWX () {
     //document.body.style.background=("")
     document.body.innerHTML=("<div class='center'><img src='load.png' width='70px' style='background: white; border-radius: 20px;'></div>")
@@ -210,7 +236,7 @@ function configS(loca, cond, temp, icon) {
         }
         showTemp = "<p>The temperature is "+temp+"</p>"
     }
-    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:resetLoca()">Reset</a></div><div class="container"><div class="center" id="center" style="max-width: 300px;">     <img src="Small-Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p>Project by <a href="https://zzz.jacobdrath.co">Jacob Drath</a>.<br><a id="settings" href="settings">Settings</a><div id="debug" style="background: gray;"><p>DEBUG MENU</p><table><tr><td>weatherAvailable</td><td><b>true</b></td></tr><tr><td>weatherData</td><td><a href="javascript:seeData()">See data...</a></td></tr><tr><td>showTemp</td><td><b>'+String(Boolean(Number(localStorage.showTemp)))+'</b></td></tr><tr><td>showIcon</td><td><b>'+String(Boolean(Number(localStorage.getItem("icon-show"))))+'</b></td></tr><tr><td>backgroundColor</td><td><input id="bgColor" type="color" oninput="setBGcolor()"></td></tr><tr><td>latitude</td><td>'+localStorage.lat+'</td></tr><tr><td>longitude</td><td>'+localStorage.long+'</td></tr></table></div></div></div>')
+    document.body.innerHTML=('<div>Current Location: '+loca+ '. <a href="javascript:resetLoca()">Reset</a></div><div class="container"><div class="center" id="center" style="max-width: 300px;">     <img src="Small-Logo.png" width="15px"><span style="font-size:15px;margin: 0;">Simple Weather</span><br>'+icon+'<h1 style="margin-top: 2px;">It is '+cond+'.</h1>'+showTemp+'<p><a id="settings" href="settings">Settings</a><div id="debug" style="background: gray;"><p>DEBUG MENU</p><table><tr><td>weatherAvailable</td><td><b>true</b></td></tr><tr><td>weatherData</td><td><a href="javascript:seeData()">See data...</a></td></tr><tr><td>showTemp</td><td><b>'+String(Boolean(Number(localStorage.showTemp)))+'</b></td></tr><tr><td>showIcon</td><td><b>'+String(Boolean(Number(localStorage.getItem("icon-show"))))+'</b></td></tr><tr><td>backgroundColor</td><td><input id="bgColor" type="color" oninput="setBGcolor()"></td></tr><tr><td>latitude</td><td>'+localStorage.lat+'</td></tr><tr><td>longitude</td><td>'+localStorage.long+'</td></tr></table></div></div></div>')
     document.title="It is "+cond+" | Simple Weather"
     document.getElementById("debug").style.display=("none")
     var url_string = window.location.href
