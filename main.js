@@ -386,8 +386,12 @@ function cmd(cmd) {
             if (sessionStorage.getItem("cond")=="raining") {
                 callCmd(after(after(cmd, " "), " "))
             }
-        } else if (cmd.startsWith("if clear")) {
-            if ((sessionStorage.getItem("cond")=="sunny") || (sessionStorage.getItem("cond")=="dark")) {
+        } else if (cmd.startsWith("if sun")) {
+            if ((sessionStorage.getItem("cond")=="sunny")) {
+                callCmd(after(after(cmd, " "), " "))
+            }
+        } else if (cmd.startsWith("if dark")) {
+            if ((sessionStorage.getItem("cond")=="dark")) {
                 callCmd(after(after(cmd, " "), " "))
             }
         } else if (cmd.startsWith("if cold")) {
